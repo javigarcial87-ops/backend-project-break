@@ -19,7 +19,7 @@ app.use("/", productRoutes)
 const PORT = process.env.PORT || 3000
 
 app.listen(PORT, () =>{
-    console.lo("Servidor escuchando en http://localhost:" + PORT)
+    console.log(`Servidor en http://localhost:${PORT}`)
 })
 
 
