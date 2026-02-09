@@ -2,7 +2,7 @@
 require("dotenv").config()
 const express = require("express")
 const connectDB = require("./config/db")
-
+const methodOverride = require("method-override")
 const productRoutes = require("./routes/productRoutes")
 
 const app = express()
@@ -10,6 +10,7 @@ const app = express()
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 
+app.use(methodOverride("_method"))
 
 connectDB()
 
