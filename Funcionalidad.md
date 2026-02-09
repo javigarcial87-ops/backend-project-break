@@ -8,3 +8,5 @@ TIENDA DE ROPA (PROJECT BREAK)
     - " npm install express mongoose dotenv "      -- Para instalar las dependencias necesarias
 
 Conexión a la base de datos en config/db.js
+
+Conexion del ser vidor principal en index.js

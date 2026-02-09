@@ -9,23 +9,23 @@ const productSchema = new mongoose.Schema(
         },
 
         description:{
-            type:String,
+            type: String,
             required: true,
         },
 
         image: {
-            type:String,
+            type: String,
             required:true,
         },
 
         category: {
-            Type:String,
+            Type: String,
             enum: ["Camisetas", "Pantalones", "Zapatos", "Abrigos"],
             required: true,
         },
 
         size: {
-            type:String,
+            type: String,
             enum: ["XS","S","M", "L", "XL"],
             required: true,
 
