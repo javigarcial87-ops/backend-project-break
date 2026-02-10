@@ -9,12 +9,16 @@ TIENDA DE ROPA (PROJECT BREAK)
 
 Conexión a la base de datos en config/db.js
 
+Creación del modelo de los productos en "Product.js"
+
 Conexion del servidor principal en index.js
 
 A traves de productControlers creamos los controladores con los diferentes enpoints
     - Mostrar todos los productos mediante una petición GET
     - Crear un producto nuevo con POST
     -
+Despues se enlaza con las rutas en "productRoutes.js"
+
 
 
 
