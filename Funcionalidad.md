@@ -9,4 +9,25 @@ TIENDA DE ROPA (PROJECT BREAK)
 
 Conexión a la base de datos en config/db.js
 
-Conexion del ser vidor principal en index.js
+Conexion del servidor principal en index.js
+
+A traves de productControlers creamos los controladores con los diferentes enpoints
+    - Mostrar todos los productos mediante una petición GET
+    - Crear un producto nuevo con POST
+    -
+
+
+
+
+    Crear el dashboard con lista de productos en "/dashboard"
+
+
+Debe mostrar:
+
+Todos los productos
+
+Enlaces para editar
+
+Botón para eliminar
+
+Enlace para crear producto nuevo
