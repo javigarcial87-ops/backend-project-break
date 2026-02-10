@@ -21,6 +21,22 @@ const showProducts = async (req, res) => {
     res.send(baseHtml(content))
 }
 
+const showNewProduct = (req, res) => {
+    const form =`
+         <h1>Introduce un producto nuevo</h1>
+            <form action="/dashboard" method="POST">
+                <input name="name" placeholder="Nombre del producto" required/>
+                <input name="description" placeholder="Descripción"/>
+                <input name="image" placeholder="URL de la imagen del producto"/>
+                <input name="category" placeholder="Categoría"/>
+                <input name="size" placeholder="Talla"/>
+                <input name="price" placeholder="Precio"/>
+                <button type="submit">Crear producto</button>
+            </form>
+    `
+    res.send(baseHtml(form))
+}
+
 
 //crear producto
 const createProduct = async (req,res) => {
@@ -35,6 +51,7 @@ const createProduct = async (req,res) => {
 
 module.exports = {
     showProducts,
+    showNewProduct,
     createProduct,
 }
 
