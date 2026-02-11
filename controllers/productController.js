@@ -49,7 +49,15 @@ const showDashboard = async(req,res)=>{
     res.send(content)
 };
 
+//editar productos
+const showEditProduct = async (req,res)=>{
+    const product = await Product.findById(req.params.id)
 
+    const form = `
+
+    `
+    res.send(form)
+}
 
 
 

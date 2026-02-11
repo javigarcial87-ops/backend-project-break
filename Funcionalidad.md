@@ -13,17 +13,19 @@ Creación del modelo de los productos en "Product.js"
 
 Conexion del servidor principal en index.js
 
+
+                        FASE CRUD 
+
+
+
 A traves de productControlers creamos los controladores con los diferentes enpoints
     - Mostrar todos los productos mediante una petición GET
     - Crear un producto nuevo con POST
     -
-Despues se enlaza con las rutas en "productRoutes.js"
 
 
 
-
-
-    Crear el dashboard con lista de productos en "/dashboard"
+Crear el dashboard con lista de productos en "/dashboard"
 
 
 Debe mostrar:
@@ -34,4 +36,7 @@ Enlaces para editar
 
 Botón para eliminar
 
-Enlace para crear producto nuevo
+Enlace para crear producto nuevo a traves de un formulario
+
+
+Crear funciones para editar productos en /dashboard/:id/edit (borrarlos o actualizar sus datos)

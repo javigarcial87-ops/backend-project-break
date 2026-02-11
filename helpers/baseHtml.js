@@ -16,12 +16,3 @@ ${content}
 `;
 
 module.exports = baseHtml;
-
-
-
-
-
-
-
-
-// 
