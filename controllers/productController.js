@@ -37,7 +37,6 @@ const showDashboard = async(req,res)=>{
                 <h2>${p.name}</h2>
                 <img src="${p.image}" width="100" alt="imagen_producto">
                 <p>${p.price}</p>
-
                 <a href="/dashboard/${p._id}/edit">Editar</a>
 
                 <form action="/dashboard/${p._id}/delete?_method=DELETE" method="POST">
@@ -54,12 +53,42 @@ const showEditProduct = async (req,res)=>{
     const product = await Product.findById(req.params.id)
 
     const form = `
+        <h1>Editar producto</h1>
 
+        <form action="/dashboard/${product._id}?_method=PUT">
+            <input name="name" value="${product.name}" required />
+            <input name="description" value="${product.description}"/>
+            <input name="image" value="${product.image}"/>
+            <input name="category" value="${product.category}"/>
+            <input name="size" value="${product.size}"/>
+            <input name="price" value="${product.price}"/>
+            <button type="submit">Actualizar</button>
+        </form>
     `
     res.send(form)
 }
 
+//Actualizar producto
 
+const updateProduct = async(req,res) => {
+    try {
+        await Product.findByIdAndUpdate(req.params.id, req.body)
+        res.redirect("/dashboard")
+    } catch(error) {
+        res.status(500).send(error.message)
+    }
+}
+
+
+//Eliminar producto
+const deleteProduct = async (req,res) => {
+    try {
+        await Product.findByIdAndDelete(req.params.id)
+        res.redirect("/dashboard")
+    } catch (error) {
+        res.status(500).send(error.message)
+    }
+}
 
 
 //formulario de productos
@@ -96,6 +125,9 @@ module.exports = {
     showNewProduct,
     createProduct,
     showDashboard,
+    showEditProduct,
+    updateProduct,
+    deleteProduct,
 }
 
 
