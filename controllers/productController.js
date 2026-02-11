@@ -21,6 +21,40 @@ const showProducts = async (req, res) => {
     res.send(baseHtml(content))
 }
 
+//Dashboard
+const showDashboard = async(req,res)=>{
+    const products = await Product.find()
+
+    let content = `
+         <h1>Dashboard</h1>
+         <a href="/dashboard/new">Crear producto</a>
+         <hr>
+    `;
+
+    products.forEach((p)=>{
+        content+= `
+            <div class="productCard">
+                <h2>${p.name}</h2>
+                <img src="${p.image}" width="100" alt="imagen_producto">
+                <p>${p.price}</p>
+
+                <a href="/dashboard/${p._id}/edit">Editar</a>
+
+                <form action="/dashboard/${p._id}/delete?_method=DELETE" method="POST">
+                    <button type="submit">Eliminar</button>
+                </form>
+            </div>
+        `;
+    });
+    res.send(content)
+};
+
+
+
+
+
+
+//formulario de productos
 const showNewProduct = (req, res) => {
     const form =`
          <h1>Introduce un producto nuevo</h1>
@@ -53,6 +87,7 @@ module.exports = {
     showProducts,
     showNewProduct,
     createProduct,
+    showDashboard,
 }
 
 

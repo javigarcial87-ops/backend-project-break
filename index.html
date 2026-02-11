@@ -6,19 +6,19 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Introduce un producto nuevo</h1>
-    <form action="/dashboard" method="POST">
 
-        <input name="name" placeholder="Nombre del producto" required/>
-        <input name="description" placeholder="Descripción"/>
-        <input name="image" placeholder="URL de la imagen del producto"/>
-        <input name="category" placeholder="Categoría"/>
-        <input name="size" placeholder="Talla"/>
-        <input name="price" placeholder="Precio"/>
-        <button type="submit">Crear producto</button>
 
+ <div class="productCard">
+    <h2>${p.name}</h2>
+    <img src="${p.image}" width="100" alt="imagen_producto">
+    <p>${p.price}</p>
+
+    <a href="/dashboard/${p._id}/edit">Editar</a>
+
+    <form action="/dashboard/${p._id}/delete?_method=DELETE" method="POST">
+        <button type="submit">Eliminar</button>
     </form>
-
+ </div>
 
 
 
