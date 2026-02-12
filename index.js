@@ -4,7 +4,7 @@ const express = require("express");
 const methodOverride = require("method-override");
 const connectDB = require("./config/db");
 const productRoutes = require("./routes/productRoutes");
-
+const apiProductRoutes = require("./routes/apiProductRoutes")
 const app = express();
 
 
@@ -14,7 +14,8 @@ connectDB();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(methodOverride("_method"));
-
+app.use("/", productRoutes)
+app.use("/api", apiProductRoutes)
 
 app.use("/", productRoutes);
 

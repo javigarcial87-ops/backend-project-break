@@ -1,4 +1,5 @@
-const product = require("../models/Product")
+const Product = require("../models/Product")
+
 //mostrar productos
 const getProducts = async (req,res) => {
     try {
@@ -20,7 +21,7 @@ const getProductById = async (req, res) => {
 
 
 //crear productos
-const getProductsById = async (req,res) => {
+const createProductApi = async (req,res) => {
     try {
         const newProduct = await Product.create(req.body)
         res.status(201).json(newProduct)
@@ -40,12 +41,29 @@ const updateProductApi = async(req,res)=> {
             {new: true}
         )
         res.json(updated)
-    } catch (error) {
+    }   catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
+
+//borrar producto
+const deleteProductApi = async (req,res) => {
+    try {
+        await Product.findByIdAndDelete(req.params.id)
+        res.json({message: "el producto ha sido eliminado con éxito"})
+    }   catch (error) {
     res.status(500).json({ error: error.message });
   }
 }
 
 
+ module.exports = {
+    getProducts,
+  getProductById,
+  createProductApi,
+  updateProductApi,
+  deleteProductApi,
+ }
 
 
 
