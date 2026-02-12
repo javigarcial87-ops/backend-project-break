@@ -14,10 +14,9 @@ connectDB();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(methodOverride("_method"));
-app.use("/", productRoutes)
 app.use("/api", apiProductRoutes)
 
-app.use("/", productRoutes);
+app.use("/", productRoutes)
 
  
 const PORT = process.env.PORT || 3000;
