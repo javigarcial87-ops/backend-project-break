@@ -5,7 +5,7 @@ const getNavBar = (isDashboard = false) => {
             <a href="/dashboard">Dashboard</a>
              ${
                 isDashboard
-                    ? ' |<a href="/dashboard/new">Nuevo producto</a>
+                    ? ' | <a href="/dashboard/new">Nuevo producto</a>
                     : ""
     }
 </nav>
