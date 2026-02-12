@@ -1,5 +1,5 @@
 const Product = require("../models/Product")
-const baseHtml =require("../helpers/baseHtml")
+const template = require("../helpers/template")
 
 //Mostrar todos los productos
 const showProducts = async (req, res) => {
@@ -18,7 +18,7 @@ const showProducts = async (req, res) => {
         `
     })
 
-    res.send(baseHtml(content))
+    res.send(template(content))
 }
 
 //Dashboard
@@ -45,7 +45,7 @@ const showDashboard = async(req,res)=>{
             </div>
         `;
     });
-    res.send(content)
+    res.send(template(content, true))
 };
 
 //editar productos
@@ -65,7 +65,7 @@ const showEditProduct = async (req,res)=>{
             <button type="submit">Actualizar</button>
         </form>
     `
-    res.send(form)
+    res.send(template(form, true))
 }
 
 //Actualizar producto
@@ -105,7 +105,7 @@ const showNewProduct = (req, res) => {
                 <button type="submit">Crear producto</button>
             </form>
     `
-    res.send(baseHtml(form))
+    res.send(template(form, true))
 }
 
 
