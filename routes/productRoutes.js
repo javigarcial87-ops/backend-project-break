@@ -1,6 +1,7 @@
 //productRoutes.js
 const express = require("express");
 const router = express.Router();
+const requireAuth = require("../middlewares/authMiddleware")
 
 const {
   showProducts,
@@ -14,11 +15,11 @@ const {
 
 router.get("/products", showProducts)
 router.post("/products", createProduct)
-router.get("/dashboard/new", showNewProduct)
-router.get("/dashboard", showDashboard)
-router.get("/dashboard/:id/edit", showEditProduct)
-router.put("/dashboard/:id", updateProduct)
-router.delete("/dashboard/:id/delete", deleteProduct)
+router.get("/dashboard/new", requireAuth, showNewProduct)
+router.get("/dashboard", requireAuth, showDashboard)
+router.get("/dashboard/:id/edit", requireAuth, showEditProduct)
+router.put("/dashboard/:id", requireAuth, updateProduct)
+router.delete("/dashboard/:id/delete", requireAuth, deleteProduct)
 
 router.get("/", (req, res) => {
   res.send("Servidor funcionando");
