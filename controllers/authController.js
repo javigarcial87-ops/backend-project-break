@@ -21,7 +21,7 @@ const login = (req,res) => {
 
 
     if (
-        username===process.env.ADMIN_USER &&
+        username === process.env.ADMIN_USER &&
         password === process.env.ADMIN_PASSWORD
     ) {
         req.session.user = username

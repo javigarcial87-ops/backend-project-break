@@ -3,7 +3,7 @@ const express = require("express")
 const router = express.Router()
 
 const {
-showLogin,
+  showLogin,
   login,
   logout,
 } = require("../controllers/authController")
@@ -12,6 +12,6 @@ showLogin,
 
 router.get("/login", showLogin)
 router.post("/login", login)
-router.get("/logout")
+router.get("/logout", logout)
 
 module.exports = router
