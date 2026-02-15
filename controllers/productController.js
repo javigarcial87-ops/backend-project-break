@@ -95,7 +95,7 @@ const deleteProduct = async (req,res) => {
 const showNewProduct = (req, res) => {
     const form =`
          <h1>Introduce un producto nuevo</h1>
-            <form action="/dashboard" method="POST">
+            <form action="/products" method="POST">
                 <input name="name" placeholder="Nombre del producto" required/>
                 <input name="description" placeholder="Descripción"/>
                 <input name="image" placeholder="URL de la imagen del producto"/>

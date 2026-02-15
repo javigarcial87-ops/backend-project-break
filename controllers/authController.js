@@ -39,19 +39,6 @@ const login = (req, res) => {
   res.send("Credenciales incorrectas");
 };
 
-// const login = (req,res) => {
-//     const { username, password} = req.body
-
-
-//     if (
-//         username === process.env.ADMIN_USER &&
-//         password === process.env.ADMIN_PASSWORD
-//     ) {
-//         req.session.user = username
-//         return res.redirect("/dashboard")
-//     }
-//     res.send("Datos incorrectos")
-// }
 
 
 const logout = (req, res) => {
