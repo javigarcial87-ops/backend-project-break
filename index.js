@@ -1,11 +1,10 @@
-
 require("dotenv").config()
 const express = require("express")
 const methodOverride = require("method-override")
 const connectDB = require("./config/db")
 const productRoutes = require("./routes/productRoutes")
 const apiProductRoutes = require("./routes/apiProductRoutes")
-const session = require("express-session")
+
 const app = express()
 const authRoutes = require("./routes/authRoutes")
 
@@ -16,6 +15,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(methodOverride("_method"))
 
+const session = require("express-session")
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
@@ -25,7 +25,6 @@ app.use(
 )
 
 app.use("/api", apiProductRoutes)
-
 app.use("/", productRoutes)
 app.use("/", authRoutes)
  
