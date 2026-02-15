@@ -1,9 +1,11 @@
 const requireAuth = (req, res, next) => {
-    if(!req.session.usr) {
-        return res.redirect("/login")
-    }
-    next()
-}
+  console.log("Sesión actual:", req.session);
 
+  if (!req.session.user) {
+    return res.redirect("/login");
+  }
 
-module.exports = requireAuth
+  next();
+};
+
+module.exports = requireAuth;
