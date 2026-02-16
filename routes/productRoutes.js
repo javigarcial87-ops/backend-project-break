@@ -2,6 +2,8 @@
 const express = require("express");
 const router = express.Router();
 const requireAuth = require("../middlewares/authMiddleware")
+const upload = require("../config/multer")
+
 
 const {
   showProducts,
@@ -14,7 +16,7 @@ const {
 } = require("../controllers/productController")
 
 router.get("/products", showProducts)
-router.post("/products", createProduct)
+router.post("/products", upload.single("image"), createProduct)
 router.get("/dashboard/new", requireAuth, showNewProduct)
 router.get("/dashboard", requireAuth, showDashboard)
 router.get("/dashboard/:id/edit", requireAuth, showEditProduct)

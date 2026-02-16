@@ -1,5 +1,8 @@
 const Product = require("../models/Product")
 const template = require("../helpers/template")
+const cloudinary = require("../config/cloudinary")
+
+
 
 //Mostrar todos los productos
 const showProducts = async (req, res) => {
@@ -95,10 +98,10 @@ const deleteProduct = async (req,res) => {
 const showNewProduct = (req, res) => {
     const form =`
          <h1>Introduce un producto nuevo</h1>
-            <form action="/products" method="POST">
+            <form action="/products" method="POST" enctype="multipart/form-data">
                 <input name="name" placeholder="Nombre del producto" required/>
                 <input name="description" placeholder="Descripción"/>
-                <input name="image" placeholder="URL de la imagen del producto"/>
+                <input type="file" name="image" accept="image/*" />
                 <select name="category" required>
                     <option value="">selecciona una categoría</option>
                     <option value="Camisetas">Camisetas</option>
@@ -123,14 +126,34 @@ const showNewProduct = (req, res) => {
 
 
 //crear producto
-const createProduct = async (req,res) => {
+const createProduct = async (req, res) => {
+  try {
+    let imageUrl = "";
 
-    try{const newProduct = await Product.create(req.body)
-    res.json(newProduct)
-    } catch(error) {
-        res.status(500).json({error: error.message})
+    if (req.file) {
+      const result = await cloudinary.uploader.upload_stream(
+        { folder: "products" },
+        async (error, result) => {
+          if (error) throw error;
+          imageUrl = result.secure_url;
+
+          const newProduct = await Product.create({
+            ...req.body,
+            image: imageUrl,
+          });
+
+          res.redirect("/dashboard");
+        }
+      );
+
+      result.end(req.file.buffer);
+    } else {
+      const newProduct = await Product.create(req.body);
+      res.redirect("/dashboard");
     }
-    
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
 }
 
 module.exports = {
