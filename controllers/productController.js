@@ -91,7 +91,7 @@ const deleteProduct = async (req,res) => {
 }
 
 
-//formulario de productos
+//creación de productos
 const showNewProduct = (req, res) => {
     const form =`
          <h1>Introduce un producto nuevo</h1>
@@ -99,8 +99,21 @@ const showNewProduct = (req, res) => {
                 <input name="name" placeholder="Nombre del producto" required/>
                 <input name="description" placeholder="Descripción"/>
                 <input name="image" placeholder="URL de la imagen del producto"/>
-                <input name="category" placeholder="Categoría"/>
-                <input name="size" placeholder="Talla"/>
+                <select name="category" required>
+                    <option value="">selecciona una categoría</option>
+                    <option value="Camisetas">Camisetas</option>
+                    <option value="Pantalones">Pantalones</option>
+                    <option value="Zapatos">Zapatos</option>
+                    <option value="Complementos">Complementos</option>
+                </select>
+                <select name="size" required>
+                    <option value="">Selecciona la talla</option>
+                    <option value="XS">XS</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                </select>
                 <input name="price" placeholder="Precio"/>
                 <button type="submit">Crear producto</button>
             </form>
