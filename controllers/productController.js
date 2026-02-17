@@ -131,30 +131,25 @@ const createProduct = async (req, res) => {
     let imageUrl = "";
 
     if (req.file) {
-      const result = await cloudinary.uploader.upload_stream(
-        { folder: "products" },
-        async (error, result) => {
-          if (error) throw error;
-          imageUrl = result.secure_url;
-
-          const newProduct = await Product.create({
-            ...req.body,
-            image: imageUrl,
-          });
-
-          res.redirect("/dashboard");
-        }
+      const result = await cloudinary.uploader.upload(
+        `data:${req.file.mimetype};base64,${req.file.buffer.toString("base64")}`,
+        { folder: "products" }
       );
 
-      result.end(req.file.buffer);
-    } else {
-      const newProduct = await Product.create(req.body);
-      res.redirect("/dashboard");
+      imageUrl = result.secure_url;
     }
+
+    const newProduct = await Product.create({
+      ...req.body,
+      image: imageUrl,
+    });
+
+    res.redirect("/dashboard");
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.error("ERROR CLOUDINARY:", error);
+    res.status(500).send("Error al subir imagen o crear producto");
   }
-}
+};
 
 module.exports = {
     showProducts,
