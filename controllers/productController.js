@@ -56,18 +56,18 @@ const showEditProduct = async (req,res)=>{
     const product = await Product.findById(req.params.id)
 
     const form = `
-        <h1>Editar producto</h1>
+    <h1>Editar producto</h1>
 
-        <form action="/dashboard/${product._id}?_method=PUT">
-            <input name="name" value="${product.name}" required />
-            <input name="description" value="${product.description}"/>
-            <input name="image" value="${product.image}"/>
-            <input name="category" value="${product.category}"/>
-            <input name="size" value="${product.size}"/>
-            <input name="price" value="${product.price}"/>
-            <button type="submit">Actualizar</button>
-        </form>
-    `
+    <form action="/dashboard/${product._id}?_method=PUT" method="POST">
+        <input name="name" value="${product.name}" required />
+        <input name="description" value="${product.description}"/>
+        <input name="image" value="${product.image}"/>
+        <input name="category" value="${product.category}"/>
+        <input name="size" value="${product.size}"/>
+        <input name="price" value="${product.price}"/>
+        <button type="submit">Actualizar</button>
+    </form>
+`
     res.send(template(form, true))
 }
 

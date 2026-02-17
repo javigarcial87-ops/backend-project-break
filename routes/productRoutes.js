@@ -1,6 +1,6 @@
 //productRoutes.js
-const express = require("express");
-const router = express.Router();
+const express = require("express")
+const router = express.Router()
 const requireAuth = require("../middlewares/authMiddleware")
 const upload = require("../config/multer")
 
@@ -24,7 +24,7 @@ router.put("/dashboard/:id", requireAuth, updateProduct)
 router.delete("/dashboard/:id/delete", requireAuth, deleteProduct)
 
 router.get("/", (req, res) => {
-  res.send("Servidor funcionando");
+  res.redirect("/products")
 });
 
 module.exports = router;
