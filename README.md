@@ -62,7 +62,7 @@ El usuario puede ver el listado de los productos detallados con:
 
 ADMINISTRADOR
 
-El administrador puede editar los productos mediante el login
+El administrador puede editar los productos mediante el login y salir de la sesión con el botón de logout
 
 Crear productos
 Editarlos
@@ -81,7 +81,7 @@ credenciales de prueba:
 
 
 
-Despliegue
+DESPLIEGUE
 
 -Aplicación desplegada en Render.
 

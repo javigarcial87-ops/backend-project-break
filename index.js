@@ -34,6 +34,7 @@ app.use(
 
 app.use(methodOverride("_method"));
 
+app.use(express.static("public"))
 
 app.use("/api", apiProductRoutes);
 app.use("/", authRoutes);

@@ -6,10 +6,7 @@ const baseHtml = (content) => `
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda</title>
-  <style>
-    body { font-family: Arial; padding: 20px; }
-    .card { border: 1px solid #ccc; padding: 10px; margin: 10px; }
-  </style>
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 ${content}
