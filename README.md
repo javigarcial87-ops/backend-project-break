@@ -47,3 +47,51 @@ ESTRUCTURA DE CARPETAS
 ├── index.js 
 ├── .env 
 └── package.json
+
+FUNCIONALIDAD
+
+USUARIO
+
+El usuario puede ver el listado de los productos detallados con:
+
+-Imagen del producto
+-Nombre
+-Descripción
+-Talla
+-Precio
+
+ADMINISTRADOR
+
+El administrador puede editar los productos mediante el login
+
+Crear productos
+Editarlos
+Elinminarlos
+Subida de imagenes mediante cloudinary
+
+AUTENTICACION
+(El acceso al dashboard con un inicio de sesión en la sección "login" de la barra de navegación)
+
+ADMIN_USER
+ADMIN_PASSWORD
+
+credenciales de prueba:
+-admin
+-1234
+
+
+
+Despliegue
+
+-Aplicación desplegada en Render.
+
+Pasos:
+
+-Subida del proyecto a GitHub.
+-Creación de Web Service en Render.
+-Configuración de variables de entorno.
+-Deploy desde el repositorio.
+
+AUTOR
+
+Javier García Álvarez
