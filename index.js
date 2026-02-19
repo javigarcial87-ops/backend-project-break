@@ -41,17 +41,17 @@ app.use("/", authRoutes)
 app.use("/", productRoutes)
 
 
-// const PORT = process.env.PORT || 3000;
-// app.listen(PORT, () => {
-//   console.log(`Servidor corriendo en http://localhost:${PORT}`);
-// });
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Servidor corriendo en http://localhost:${PORT}`);
+});
 
-if (process.env.NODE_ENV !== "test") {
-  app.listen(prototype, ()=>{
-    console.log(`Servidor corriendo en http://localhost:${PORT}`)
-  })
-}
-module.exports = app
+// if (process.env.NODE_ENV !== "test") {
+//   app.listen(prototype, ()=>{
+//     console.log(`Servidor corriendo en http://localhost:${PORT}`)
+//   })
+// }
+// module.exports = app
 
 
 
