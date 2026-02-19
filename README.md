@@ -20,6 +20,16 @@ Deploy en RENDER
 URL
 https://tienda-ropa-backend-cv2c.onrender.com
 
+URL API REST
+
+https://tienda-ropa-backend-cv2c.onrender.com/api/products
+
+obtener productos por id
+/api/products/:id
+
+
+
+
 ESTRUCTURA DE CARPETAS
 
 ├── config 
@@ -47,6 +57,8 @@ ESTRUCTURA DE CARPETAS
 ├── index.js 
 ├── .env 
 └── package.json
+
+
 
 FUNCIONALIDAD
 
