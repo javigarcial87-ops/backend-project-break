@@ -8,6 +8,7 @@ TECNOLOGIAS:
 
 Cloudinary
 Node
+Jest
 Express
 Express-session
 Method-override
