@@ -12,11 +12,11 @@ const showProducts = async (req, res) => {
     products.forEach((p)=>{
         content +=`
             <div class="card">
-                <h2>${p.name}</h2>
+                <h3>${p.name}</h3>
                 <img src="${p.image}" width="100"/>
                 <p>${p.category}</p>
                 <p>${p.size}</p>
-                <p>${p.price}</p>
+                <p>${p.price} €</p>
             </div>
         `
     })
@@ -30,18 +30,17 @@ const showDashboard = async(req,res)=>{
 
     let content = `
          <h1>Dashboard</h1>
-         <a href="/dashboard/new">Crear producto</a>
-         <hr>
+         <a href="/dashboard/new" class="linkCrear">Crear producto</a>
+         
     `;
 
     products.forEach((p)=>{
         content+= `
-            <div class="productCard">
-                <h2>${p.name}</h2>
+            <div class="card">
+                <h3>${p.name}</h3>
                 <img src="${p.image}" width="100" alt="imagen_producto">
-                <p>${p.price}</p>
+                <p>${p.price} €</p>
                 <a href="/dashboard/${p._id}/edit">Editar</a>
-
                 <form action="/dashboard/${p._id}/delete?_method=DELETE" method="POST">
                     <button type="submit">Eliminar</button>
                 </form>
@@ -56,17 +55,19 @@ const showEditProduct = async (req,res)=>{
     const product = await Product.findById(req.params.id)
 
     const form = `
-    <h1>Editar producto</h1>
+    <div class="containerForm">
+        <h1>Editar producto</h1>
 
-    <form action="/dashboard/${product._id}?_method=PUT" method="POST">
-        <input name="name" value="${product.name}" required />
-        <input name="description" value="${product.description}"/>
-        <input name="image" value="${product.image}"/>
-        <input name="category" value="${product.category}"/>
-        <input name="size" value="${product.size}"/>
-        <input name="price" value="${product.price}"/>
-        <button type="submit">Actualizar</button>
-    </form>
+        <form action="/dashboard/${product._id}?_method=PUT" method="POST" class="formDash">
+            <input name="name" value="${product.name}" required />
+            <input name="description" value="${product.description}"/>
+            <input name="image" value="${product.image}"/>
+            <input name="category" value="${product.category}"/>
+            <input name="size" value="${product.size}"/>
+            <input name="price" value="${product.price}"/>
+            <button type="submit">Actualizar</button>
+        </form>
+     </div>
 `
     res.send(template(form, true))
 }
@@ -97,11 +98,12 @@ const deleteProduct = async (req,res) => {
 //creación de productos
 const showNewProduct = (req, res) => {
     const form =`
+    <div class="containerForm">
          <h1>Introduce un producto nuevo</h1>
-            <form action="/products" method="POST" enctype="multipart/form-data">
+            <form action="/products" method="POST" enctype="multipart/form-data" class="formDash">
                 <input name="name" placeholder="Nombre del producto" required/>
                 <input name="description" placeholder="Descripción"/>
-                <input type="file" name="image" accept="image/*" />
+                <input type="file" name="image" accept="image/*"/>
                 <select name="category" required>
                     <option value="">selecciona una categoría</option>
                     <option value="Camisetas">Camisetas</option>
@@ -120,6 +122,7 @@ const showNewProduct = (req, res) => {
                 <input name="price" placeholder="Precio"/>
                 <button type="submit">Crear producto</button>
             </form>
+    </div>        
     `
     res.send(template(form, true))
 }

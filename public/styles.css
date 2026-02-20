@@ -1,7 +1,70 @@
-body { 
-font-family: Arial; padding: 20px; 
-};
+body {
+  font-family: Arial, sans-serif;
+}
 
-.card{
-    display: flex;
+h1{
+  margin-left: 20px;
+}
+.navbar {
+  background: #111;
+  padding: 15px;
+}
+
+.navbar a {
+  color: rgb(255, 255, 255);
+  margin-right: 20px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a{
+    text-decoration: none;
+    color: #111;
+}
+.linkCrear{
+    border: 1px solid black;
+    padding: 5px;
+    font-weight: bolder;
+    margin-left: 20px;
+}
+.card {
+ 
+  width: 240px;
+  height: 300px;
+  border-radius: 12px;
+  padding: 15px;
+  display: block;
+  flex-direction:column;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  gap: 10px
+}
+
+.card a{
+ border: 1px solid black;
+ padding: 3px;
+}
+
+.card button{
+  width: 100px;
+  
+}
+
+form{
+  display: flex;
+  flex-direction: column;   
+  gap: 15px;                
+  width: 350px;
+  padding: 25px;
+  border-radius: 12px;
+  
+}
+
+.containerForm{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;  
+  gap: 15px;                
+  width: 350px;
+
 }
