@@ -13,7 +13,7 @@ const app = express()
 
 
 connectDB()
-
+app.use(express.static("public"))
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
@@ -33,8 +33,6 @@ app.use(
 
 
 app.use(methodOverride("_method"))
-
-app.use(express.static("public"))
 
 app.use("/api", apiProductRoutes)
 app.use("/", authRoutes)
