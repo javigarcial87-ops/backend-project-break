@@ -34,8 +34,11 @@ app.use(
 
 app.use(methodOverride("_method"))
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> c32655f525585d8a2b23ea07f47e4e440fe21ba5
 app.use("/api", apiProductRoutes)
 app.use("/", authRoutes)
 app.use("/", productRoutes)
